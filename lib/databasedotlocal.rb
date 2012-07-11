@@ -1,5 +1,14 @@
 require "databasedotlocal/version"
+require "databasedotlocal/app"
 
 module Databasedotlocal
-  # Your code goes here...
+  class << self
+
+    def app
+      @app ||= Rack::Builder.new {
+        run Databasedotlocal::App
+      }
+    end
+
+  end
 end
