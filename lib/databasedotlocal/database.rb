@@ -53,8 +53,7 @@ module Databasedotlocal
       def update(hash)
         record = record_exists?(hash)
         raise "Object with id does not exist" unless record
-        self.remove(record)
-        self << hash
+        record.replace(hash)
       end
 
       def upsert(hash)
@@ -75,6 +74,7 @@ module Databasedotlocal
       def record_exists?(hash)
         self.find { |record| record["Id"] == hash["Id"] }
       end
+
     end
 
   end
