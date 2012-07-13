@@ -53,7 +53,7 @@ module Databasedotlocal
       def update(hash)
         record = record_exists?(hash)
         raise "Object with id does not exist" unless record
-        self._delete(record)
+        self.remove(record)
         self.insert(hash)
       end
 
@@ -65,11 +65,11 @@ module Databasedotlocal
         end
       end
 
-      alias :_delete :delete
+      alias :remove :delete
       def delete(hash)
         record = record_exists?(hash)
         raise "Object with id does not exist" unless record
-        self._delete(record)
+        self.remove(record)
       end
 
       def record_exists?(hash)
