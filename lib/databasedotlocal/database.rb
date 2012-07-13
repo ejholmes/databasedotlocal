@@ -58,7 +58,7 @@ module Databasedotlocal
 
       def upsert(hash)
         if record = record_exists?(hash)
-          self.update(hash)
+          record.replace(hash)
         else
           self << hash
         end
