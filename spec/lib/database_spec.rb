@@ -15,7 +15,8 @@ describe Databasedotlocal::Database do
   end
 
   it "does something else" do
-    puts described_class.storage
+    Databasedotlocal.schema_path = 'test'
+    Databasedotlocal.schema_path.should eq('test')
   end
   
 end
