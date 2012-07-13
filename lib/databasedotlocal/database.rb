@@ -68,6 +68,7 @@ module Databasedotlocal
       alias :_delete :delete
       def delete(hash)
         record = record_exists?(hash)
+        raise "Object with id does not exist" unless record
         self._delete(record)
       end
 
