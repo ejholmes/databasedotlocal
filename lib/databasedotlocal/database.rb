@@ -54,14 +54,14 @@ module Databasedotlocal
         record = record_exists?(hash)
         raise "Object with id does not exist" unless record
         self.remove(record)
-        self.insert(hash)
+        self << hash
       end
 
       def upsert(hash)
         if record = record_exists?(hash)
           self.update(hash)
         else
-          self.insert(hash)
+          self << hash
         end
       end
 
